@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jawi Token | Komunitas Masa Depan</title>
+    <meta name="description" content="Jawi Token adalah komunitas digital masa depan yang membawa semangat kolaborasi, inovasi, dan warisan untuk generasi berikutnya." />
+    <style>
+      :root {
+        --bg: #07121f;
+        --bg-2: #0d1d2f;
+        --panel: rgba(17, 27, 40, 0.82);
+        --panel-strong: #12263d;
+        --primary: #f6c860;
+        --primary-soft: rgba(246, 200, 96, 0.16);
+        --secondary: #79d8ff;
+        --accent: #7ef1c5;
+        --text: #edf8ff;
+        --muted: #b6c9dd;
+        --line: rgba(255,255,255,0.08);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(121, 216, 255, 0.18), transparent 24%),
+          radial-gradient(circle at top right, rgba(126, 241, 197, 0.12), transparent 22%),
+          linear-gradient(135deg, var(--bg), var(--bg-2));
+        color: var(--text);
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; }
+      p { margin: 0; }
+
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(14px);
+        background: rgba(7, 18, 31, 0.7);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 76px;
+      }
+
+      .brand {
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .brand .gold { color: var(--primary); }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      .nav-links a:hover { color: var(--text); }
+
+      .hero {
+        padding: 72px 0 34px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 42px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--primary-soft);
+        border: 1px solid rgba(246, 200, 96, 0.35);
+        color: var(--primary);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 18px 0 16px;
+        font-size: clamp(2.8rem, 6vw, 5.5rem);
+        line-height: 0.96;
+        letter-spacing: -0.06em;
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, var(--primary), #ffd976, var(--secondary));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .lead {
+        max-width: 640px;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 1.08rem;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 22px;
+        border-radius: 999px;
+        font-weight: 700;
+        border: 1px solid transparent;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), #ffd97a);
+        color: #1b170d;
+        box-shadow: 0 12px 28px rgba(246, 200, 96, 0.3);
+      }
+
+      .btn-secondary {
+        background: rgba(255,255,255,0.02);
+        border-color: var(--line);
+        color: var(--text);
+      }
+
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+        margin-top: 30px;
+      }
+
+      .stat {
+        min-width: 120px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.55rem;
+        margin-bottom: 4px;
+      }
+
+      .stat span {
+        color: var(--muted);
+      }
+
+      .coin-panel {
+        background: linear-gradient(180deg, rgba(19, 36, 54, 0.85), rgba(11, 18, 26, 0.9));
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        padding: 28px 24px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      }
+
+      .coin {
+        width: 220px;
+        height: 220px;
+        margin: 0 auto 22px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at 30% 30%, #fbe9b1, #efbb4b 30%, #a66d0d 100%);
+        border: 10px solid rgba(255,255,255,0.14);
+        box-shadow: inset 0 7px 18px rgba(255,255,255,0.2), 0 24px 54px rgba(0,0,0,0.38);
+        color: rgba(32, 22, 8, 0.9);
+        font-size: 3.1rem;
+        font-weight: 900;
+      }
+
+      .chips {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .chip {
+        background: rgba(255,255,255,0.02);
+        color: var(--muted);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 10px 14px;
+        font-size: 0.85rem;
+      }
+
+      .section {
+        padding: 40px 0 12px;
+      }
+
+      .section-head { margin-bottom: 20px; }
+      .section-head h2 {
+        margin: 0 0 10px;
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        letter-spacing: -0.05em;
+      }
+
+      .section-head p {
+        color: var(--muted);
+        line-height: 1.8;
+        max-width: 700px;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: rgba(17, 27, 40, 0.72);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 24px;
+      }
+
+      .icon {
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: rgba(121, 216, 255, 0.08);
+        border: 1px solid rgba(121, 216, 255, 0.18);
+        margin-bottom: 16px;
+        font-size: 1.25rem;
+      }
+
+      .card h3 {
+        margin: 0 0 12px;
+        font-size: 1.25rem;
+      }
+
+      .card p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .roadmap-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .roadmap-item {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 22px 20px;
+      }
+
+      .roadmap-item strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.35rem;
+      }
+
+      .roadmap-item span {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      footer {
+        padding: 54px 0 70px;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      @media (max-width: 760px) {
+        .nav {
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 12px;
+          padding: 18px 0;
+        }
+
+        .nav-links {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .hero-grid,
+        .card-grid,
+        .roadmap-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .coin {
+          width: 180px;
+          height: 180px;
+          font-size: 2.6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a href="#top" class="brand"><span class="gold">Jawi</span> Token</a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about">Tentang</a>
+          <a href="#mission">Misi</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#community">Komunitas</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="container">
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Komunitas Masa Depan</div>
+            <h1>Jawi <span class="gradient-text">Token</span></h1>
+            <p class="lead">
+              Jawi Token adalah identitas komunitas yang lahir untuk masa depan. Semangat kolaborasi,
+              inovasi, dan warisan digital menjadikan proyek ini lebih bermakna untuk generasi berikutnya.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#about">Pelajari Lebih Lanjut</a>
+              <a class="btn btn-secondary" href="README.md">Lihat README</a>
+            </div>
+            <div class="stats">
+              <div class="stat">
+                <strong>2026</strong>
+                <span>Awal perjalanan</span>
+              </div>
+              <div class="stat">
+                <strong>∞</strong>
+                <span>Potensi</span>
+              </div>
+              <div class="stat">
+                <strong>JAWI</strong>
+                <span>Simbol utama</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="coin-panel">
+            <div class="coin">JAWI</div>
+            <div class="chips">
+              <span class="chip">Komunitas</span>
+              <span class="chip">Masa Depan</span>
+              <span class="chip">Warisan</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-head">
+          <h2>Tentang Proyek</h2>
+          <p>
+            Jawi Token dibuat untuk memperkuat semangat komunitas dalam membangun ekosistem digital yang
+            modern, relevan, dan mencerminkan nilai meskipun di masa depan.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <div class="icon">✦</div>
+            <h3>Komunitas</h3>
+            <p>
+              Menjadi wadah bagi orang-orang yang ingin terhubung, berbagi semangat, dan tumbuh bersama.
+            </p>
+          </article>
+
+          <article id="mission" class="card">
+            <div class="icon">◎</div>
+            <h3>Misi</h3>
+            <p>
+              Mengubah semangat kolaborasi menjadi identitas digital yang membangun masa depan bersama.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">✧</div>
+            <h3>Warisan</h3>
+            <p>
+              Menyimpan jejak digital sebagai bukti dan kebanggaan bagi para penerus di masa mendatang.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section">
+        <div class="section-head">
+          <h2>Roadmap</h2>
+          <p>
+            Fokus utama adalah membangun fondasi komunitas yang kuat agar Jawi Token dapat berkembang dengan
+            nilai yang jelas dan visi yang konsisten.
+          </p>
+        </div>
+
+        <div class="roadmap-grid">
+          <div class="roadmap-item">
+            <strong>1. Fondasi</strong>
+            <span>Menyusun branding, landing page, dan struktur komunitas yang dapat dipahami dengan jelas.</span>
+          </div>
+          <div class="roadmap-item">
+            <strong>2. Keberlanjutan</strong>
+            <span>Membentuk pengalaman komunitas yang lebih terhubung, konsisten, dan tumbuh secara alami.</span>
+          </div>
+          <div class="roadmap-item">
+            <strong>3. Pengembangan</strong>
+            <span>Menambahkan fitur dan elemen yang lebih berarti untuk kebutuhan komunitas di masa depan.</span>
+          </div>
+          <div class="roadmap-item" id="community">
+            <strong>4. Komunitas</strong>
+            <span>Memperluas semangat bersama agar Jawi Token menjadi simbol yang hidup dan relevan.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Jawi Token — simpan untuk bukti anak cucu.
+    </footer>
+  </body>
+</html>
